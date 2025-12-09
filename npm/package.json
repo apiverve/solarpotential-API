@@ -1,0 +1,35 @@
+{
+  "name": "@apiverve/solarpotential",
+  "version": "1.1.12",
+  "description": "Solar Potential is a simple tool for getting the estimated annual energy production of a PV system. It returns the estimated annual energy production of a PV system.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "mocha",
+    "example": "node examples/basic.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apiverve/solarpotential-api.git",
+    "directory": "npm"
+  },
+  "keywords": [
+    "solar potential", "solar potential api", "solar potential tool", "solar potential software", "solar potential service"
+  ],
+  "author": "APIVerve <hello@apiverve.com> (http://apiverve.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apiverve/solarpotential-api/issues"
+  },
+  "homepage": "https://apiverve.com/marketplace/solarpotential?utm_source=npm",
+  "devDependencies": {
+    "mocha": "^11.0.1",
+    "chai": "^5.1.2",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "promise": "^8.3.0",
+    "axios": "1.13.2"
+  }
+}
