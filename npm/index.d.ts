@@ -4,31 +4,43 @@ declare module '@apiverve/solarpotential' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface solarpotentialResponse {
     status: string;
     error: string | null;
     data: SolarPotentialData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface SolarPotentialData {
       coordinates:   Coordinates;
       usableHours:   UsableHours;
-      bestDirection: string;
-      cloudFactor:   number;
-      disclaimer:    string;
+      bestDirection: null | string;
+      cloudFactor:   number | null;
+      disclaimer:    null | string;
   }
   
   interface Coordinates {
-      latitude:  number;
-      longitude: number;
+      latitude:  number | null;
+      longitude: number | null;
   }
   
   interface UsableHours {
-      avgDailyUsableSunlightHours:       number;
-      yearlyUsableSunlightHoursRaw:      number;
-      adjustedYearlyUsableSunlightHours: number;
+      avgDailyUsableSunlightHours:       number | null;
+      yearlyUsableSunlightHoursRaw:      number | null;
+      adjustedYearlyUsableSunlightHours: number | null;
   }
 
   export default class solarpotentialWrapper {
