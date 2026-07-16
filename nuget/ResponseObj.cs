@@ -25,6 +25,9 @@ namespace APIVerve.API.SolarPotential
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -39,7 +42,7 @@ namespace APIVerve.API.SolarPotential
         public string BestDirection { get; set; }
 
         [JsonProperty("cloudFactor")]
-        public double CloudFactor { get; set; }
+        public double? CloudFactor { get; set; }
 
         [JsonProperty("disclaimer")]
         public string Disclaimer { get; set; }
@@ -48,21 +51,33 @@ namespace APIVerve.API.SolarPotential
     public partial class Coordinates
     {
         [JsonProperty("latitude")]
-        public double Latitude { get; set; }
+        public double? Latitude { get; set; }
 
         [JsonProperty("longitude")]
-        public double Longitude { get; set; }
+        public double? Longitude { get; set; }
     }
 
     public partial class UsableHours
     {
         [JsonProperty("avgDailyUsableSunlightHours")]
-        public double AvgDailyUsableSunlightHours { get; set; }
+        public double? AvgDailyUsableSunlightHours { get; set; }
 
         [JsonProperty("yearlyUsableSunlightHoursRaw")]
-        public long YearlyUsableSunlightHoursRaw { get; set; }
+        public long? YearlyUsableSunlightHoursRaw { get; set; }
 
         [JsonProperty("adjustedYearlyUsableSunlightHours")]
-        public long AdjustedYearlyUsableSunlightHours { get; set; }
+        public long? AdjustedYearlyUsableSunlightHours { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
